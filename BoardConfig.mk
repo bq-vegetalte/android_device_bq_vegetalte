@@ -23,8 +23,13 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno306
 TARGET_KERNEL_SOURCE := kernel/bq/msm8939
 TARGET_KERNEL_CONFIG := cyanogenmod_vegetalte_defconfig
 
+#kernel tools
+KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
+KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin/"
+TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
+
 # Assert
-TARGET_OTA_ASSERT_DEVICE := vegetalte,Aquaris_E5
+TARGET_OTA_ASSERT_DEVICE := vegetalte,Aquaris_E5,aquiarise5
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/bq/vegetalte/bluetooth
@@ -40,6 +45,23 @@ BOARD_SEPOLICY_DIRS += device/bq/vegetalte/sepolicy
 
 # Tap to Wake
 TARGET_TAP_TO_WAKE_NODE := "/proc/gesture_open"
+
+# TWRP-Specific
+TARGET_RECOVERY_FSTAB := device/bq/msm8916-common/rootdir/etc/twrp.fstab
+TW_THEME := portrait_hdpi
+RECOVERY_SDCARD_ON_DATA := true
+TW_INCLUDE_CRYPTO := true
+TARGET_RECOVERY_QCOM_RTC_FIX := true
+TW_TARGET_USES_QCOM_BSP := true
+TW_NEW_ION_HEAP := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_DEFAULT_EXTERNAL_STORAGE := true
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+BOARD_SUPPRESS_SECURE_ERASE := true
 
 # Wifi
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
