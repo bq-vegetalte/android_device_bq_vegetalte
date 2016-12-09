@@ -48,20 +48,15 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/gesture_open"
 
 # TWRP-Specific
 TARGET_RECOVERY_FSTAB := device/bq/msm8916-common/rootdir/etc/twrp.fstab
-TW_THEME := portrait_hdpi
-RECOVERY_SDCARD_ON_DATA := true
-TW_INCLUDE_CRYPTO := true
+# TWRP-Specific
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_QCOM_RTC_FIX := true
-TW_TARGET_USES_QCOM_BSP := true
-TW_NEW_ION_HEAP := true
-TW_INTERNAL_STORAGE_PATH := "/data/media"
-TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
-TW_EXTERNAL_STORAGE_PATH := "/external_sd"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
-TW_DEFAULT_EXTERNAL_STORAGE := true
-TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-BOARD_SUPPRESS_SECURE_ERASE := true
+RECOVERY_SDCARD_ON_DATA := true
+TW_THEME := portrait_hdpi
+TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_INCLUDE_CRYPTO := true
+TW_DEFAULT_BRIGHTNESS := 128
 
 # Wifi
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
